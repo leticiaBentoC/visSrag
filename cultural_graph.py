@@ -3,15 +3,12 @@ import dash_bootstrap_components as dbc
 import numpy as np
 import plotly.graph_objects as go
 
-def generate_cultural_graph(df, app):
+def generate_cultural_graph(df, app, anos):
 
-    df['ANO'] = df['DATA_ALTA_OBITO'].dt.year
-
-    # Lista de anos
-    anos = [2020, 2021, 2022, 2023]    
+    df['ANO'] = df['DATA_ALTA_OBITO'].dt.year    
 
     cultural_html = dbc.Col(children=[
-                    html.H4(children='Dimensões Culturais - Sexo/Idade', style={'textAlign': 'center'}),
+                    html.H4(children='Distribuição dos Pacientes - Sexo/Idade', style={'textAlign': 'center'}),
                     dcc.Dropdown(
                         id="ano-cultural-dropdown",
                         options=[{'label': str(ano), 'value': ano} for ano in anos],
@@ -71,6 +68,8 @@ def generate_cultural_graph(df, app):
                 titlefont_size=16,
                 tickfont_size=14,
             ),
+            legend=dict(orientation='h', yanchor='top', y=-0.2),
+            autosize=True,
             bargap=0.15, # gap between bars of adjacent location coordinates.
             bargroupgap=0.1 # gap between bars of the same location coordinate.
         )

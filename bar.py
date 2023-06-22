@@ -6,7 +6,7 @@ import pandas as pd
 import col_sintomas as cs
 import col_indesejadas as ci
 
-def generate_bar_graph(df, app):
+def generate_bar_graph(df, app, anos):
     nomes_colunas = cs.generate_col_sintomas()
 
     # Itens que serão excluídos do array
@@ -16,9 +16,6 @@ def generate_bar_graph(df, app):
     sintomas = [col for col in nomes_colunas if col not in itens_indesejados] 
 
     df['ANO'] = df['DATA_ALTA_OBITO'].dt.year
-
-    # Lista de anos
-    anos = [2020, 2021, 2022, 2023]
 
     button_group = html.Div([
         dbc.RadioItems(

@@ -46,9 +46,6 @@ def generate_cards(df):
     # Obter os anos presentes na coluna 'DATA_ALTA_OBITO' e ordená-los em ordem crescente
     anos = np.sort(df['DATA_ALTA_OBITO'].dt.year.unique())
 
-    # Remover o ano 2019 utilizando a função np.delete()
-    anos = np.delete(anos, np.where(anos == 2019))
-
     # Criar uma lista para armazenar as colunas dos cards
     colunas = []
 

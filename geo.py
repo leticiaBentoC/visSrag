@@ -3,12 +3,9 @@ import dash_bootstrap_components as dbc
 import plotly.express as px
 import json
 
-def generate_geo_graph(df, app):
+def generate_geo_graph(df, app, anos):
     # Lendo o GeoJson do Brasil
-    geojson = json.load(open('C:/PROJETOS/TCC/dados/geojson/brasil_estados.json'))
-
-    # Lista de anos
-    anos = [2020, 2021, 2022, 2023]
+    geojson = json.load(open('../dados/geojson/brasil_estados.json'))
 
     button_group = html.Div([
         dbc.RadioItems(
